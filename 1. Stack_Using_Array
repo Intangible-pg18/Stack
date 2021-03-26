@@ -1,0 +1,133 @@
+---
+	       #include <bits/stdc++.h>
+	       using namespace std;
+	       #define max 1000
+	        
+	       class Stack {
+	        public:
+	           int top; 
+	           int a[max];
+	           Stack() 
+	           { 
+	               top = -1; 
+	               
+	           }
+	           bool isFull();
+	           bool isEmpty();
+	           void push(int x);
+	           int pop();
+	           int peek();
+	           void display();
+	       };
+	       
+	       bool Stack::isFull()
+	       {
+	           if (top == (max-1))
+	               return true;
+	           return false;
+	       }
+	       
+	       bool Stack::isEmpty()
+	       {   if (top == -1)
+	               return true;
+	           return false;
+	       }
+	       
+	       void Stack::push(int x)
+	       {
+	           if (isFull()) 
+	           {
+	               cout << "Stack Overflow\n";
+	               return;
+	           }
+	           else 
+	           {
+	               a[++top] = x;
+	               return;
+	           }
+	       }
+	        
+	       int Stack::pop()
+	       {
+	           if (isEmpty()) 
+	           {
+	               cout << "Stack Underflow\n";
+	               return 0;
+	           }
+	           else 
+	           {
+	               int x = a[top--];
+	               return x;
+	           }
+	       }
+	       
+	       int Stack::peek()
+	       {   
+	           if (isEmpty()) 
+	           {
+	               cout << "Stack is Empty\n";
+	               return 0;
+	           }
+	           else 
+	           {
+	               int x = a[top];
+	               cout<<x<<"\n";
+	               return 0;
+	           }
+	       }
+	       
+	       void Stack::display() {
+	          if(!(this->isEmpty())) 
+	          {
+	             for(int i=top;i>=0;i--)
+	             {
+	               cout<<a[i]<<"\n";
+	             }
+	          }
+	          else
+	          cout<<"Stack is empty\n";
+	       }
+	       
+	       int main()
+	       {
+	          Stack s; 
+	          int ch,val;
+	          cout<<"1) Push in stack"<<endl;
+	          cout<<"2) Pop from stack"<<endl;
+	          cout<<"3) Display stack"<<endl;
+	          cout<<"4) Top-most element"<<endl;
+	          cout<<"5) EXIT"<<endl;
+	          do {
+	             cout<<"Enter choice: "<<endl;
+	             cin>>ch;
+	             switch(ch) {
+	                case 1: {
+ 	                  cout<<"Enter value to be pushed:"<<endl;
+	                   cin>>val;
+	                   s.push(val);
+	                   break;
+	                }
+	                case 2: {
+	                   s.pop();
+	                   break;
+	                }
+	                case 3: {
+	                   s.display();
+	                   break;
+	                }
+	                case 4: {
+	                   s.peek();
+	                   break;
+	                }
+	                case 5: {
+	                    cout<<"EXIT"<<endl;
+	                    break;
+	                }
+	                default: {
+	                   cout<<"Invalid Choice"<<endl;
+	                }
+	             }
+	          }while(ch!=5);
+	          return 0;
+	       }
+---
